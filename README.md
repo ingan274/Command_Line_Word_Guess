@@ -1,2 +1,2 @@
-# Command_Line_Word_Guess
+# Command Line Word Guess
 Word Guess command-line game using constructor functions
