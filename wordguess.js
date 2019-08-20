@@ -9,13 +9,14 @@ var guessesRemaining = 10;
 var guessedLetters = [];
 var activeWord = new Word(randomWords());
 // console.log(activeWord)
-// console.log(activeWord.correctWord)
+console.log(activeWord.correctWord)
 activeWord.generateAllCorrectLetters();
 
 var title = chalk.whiteBright.bold.bgCyan("\n Welcome to the Word Guess Game! ");
 console.log(title);
 var space = "\n\n" + "\xa0\xa0\xa0\xa0\xa0";
 var line = chalk.blue.bold("\n - - - - - - - - - - - - - - - - -\n");
+
 
 // Main Function
 var main = () => {
@@ -61,9 +62,10 @@ var main = () => {
             activeWord.correctWordLetters[i].checkGuess(data.guess);
         };
 
-        // Decrementing guesses
-        if (!activeWord.correctWordLetters.includes(data.guess)) {
-            guessesRemaining--;
+        // WINNING
+        if (activeWord.guessedCorrectly() || activeWord.guessedCorrectly() && guessesRemaining === 0) {
+            endGame('win');
+            return;
         }
 
         // Lost
@@ -71,15 +73,17 @@ var main = () => {
             endGame('loss');
             return;
         };
-        // WINNING
-        if (activeWord.guessedCorrectly()) {
-            endGame('win');
-        }
 
+        // Decrementing guesses
+        if (!activeWord.correctWordLetters.includes(data.guess)) {
+            guessesRemaining--;
+        }
         main();
     });
 }
+
 main();
+
 
 // Ending Game
 var endGame = (outcome) => {
@@ -103,7 +107,7 @@ var endGame = (outcome) => {
             type: "confirm",
         }
     ]).then(function (response) {
-        if (response.confirm) {
+        if (response.confirm === "true") {
             console.log(chalk.blueBright("\nGreat! Generating a new word..."));
             main();
         } else {
@@ -112,4 +116,3 @@ var endGame = (outcome) => {
         };
     });
 };
-
