@@ -9,7 +9,7 @@ var guessesRemaining = 10;
 var guessedLetters = [];
 var activeWord = new Word(randomWords());
 // console.log(activeWord)
-console.log(activeWord.correctWord)
+// console.log(activeWord.correctWord)
 activeWord.generateAllCorrectLetters();
 
 var title = chalk.whiteBright.bold.bgCyan("\n Welcome to the Word Guess Game! ");
@@ -107,7 +107,7 @@ var endGame = (outcome) => {
             type: "confirm",
         }
     ]).then(function (response) {
-        if (response.confirm === "true") {
+        if (response.confirm) {
             console.log(chalk.blueBright("\nGreat! Generating a new word..."));
             main();
         } else {
