@@ -1,0 +1,25 @@
+{
+  "name": "word_guess_game_cli",
+  "version": "1.0.0",
+  "description": "Command-Line Word Guess Game",
+  "main": "wordguess.js",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "inquirer": "^6.5.1",
+    "random-words": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingan274/Command_Line_Word_Guess.git"
+  },
+  "author": "Isabel Ngan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ingan274/Command_Line_Word_Guess/issues"
+  },
+  "homepage": "https://github.com/ingan274/Command_Line_Word_Guess#readme"
+}
