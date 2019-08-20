@@ -1,10 +1,13 @@
 var Letter = require('./Letter.js');
 
+// var LetterWord = new Letter("H");
+// console.log(LetterWord)
+
 function Word(correctWord) {
     this.correctWord = correctWord;
     this.correctWordLetters = [];
 
-    // split letter of correct letter and push into array of correct Letters
+    // split Word of correct letter and push into array of correct Letters
     this.generateAllCorrectLetters = () => {
         var correctLetterArray = this.correctWord.split('');
         for (var letters of correctLetterArray) {
@@ -16,7 +19,7 @@ function Word(correctWord) {
     // compare all correct letters with guessed letter
     this.makeGuess = (guess) => {
         for (var c = 0; c < this.correctWordLetters.length; c++) {
-            this.letters[c].checkGuess(guess);
+            this.correctWordLetters[c].checkGuess(guess);
         };
     };
 
@@ -28,6 +31,16 @@ function Word(correctWord) {
         };
         return displayWord;
     };
+
+    // Checking if Word it Right
+    this.guessedCorrectly = () => {
+        for (var i = 0; i < this.correctWordLetters.length; i++) {
+            if (!this.correctWordLetters[i].guessedCorrectly) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 module.exports = Word;

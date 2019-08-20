@@ -11,7 +11,7 @@ function Letter(character) {
         return "_ ";
       };
     };
-  
+ 
     // Checking Guesses against the letters of a word
     this.checkGuess = (guess) => {
       if (this.character.toLowerCase() == guess.toLowerCase()) {
