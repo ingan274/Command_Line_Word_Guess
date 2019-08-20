@@ -6,6 +6,9 @@ Type following command to see the Hangman Command-Line game in action.
 <li>🤫😏 node wordgueess.js </li> 
 <li>An watch the game unfold! </li>
 
+
+![Word Guess 1.0 Demo](demo/Demo.gif)
+
 ## Installation
 You can install and run with NPM. Simply open your terminal and type the following commands:
 
