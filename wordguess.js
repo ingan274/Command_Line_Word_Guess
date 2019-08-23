@@ -12,8 +12,9 @@ var activeWord = new Word(randomWords());
 // console.log(activeWord.correctWord)
 activeWord.generateAllCorrectLetters();
 
-var title = chalk.whiteBright.bold.bgCyan("\n Welcome to the Word Guess Game! ");
-console.log(title);
+var title = chalk.whiteBright.bold.bgCyan("\n   Welcome to the Word Guess Game!   ");
+var quit = chalk.white("\n(if you would like to quit, just type'quit')\n");
+console.log(title + quit);
 var space = "\n\n" + "\xa0\xa0\xa0\xa0\xa0";
 var line = chalk.blue.bold("\n - - - - - - - - - - - - - - - - -\n");
 
@@ -38,7 +39,6 @@ var main = () => {
             }
         }
     ]).then((data) => {
-
         // Validate user input
         if (data.guess === "quit") {
             console.log(chalk.blueBright("\n Sorry to see you go. See you next time!\n"));
@@ -95,18 +95,20 @@ var endGame = (outcome) => {
         console.log(chalk.cyan("\n\nSorry, look like have 0 guess left. ") + chalk.bgBlue.white("The word was " + activeWord.correctWord.toUpperCase() + "."));
     }
 
+    // reseting game
     guessesRemaining = 10;
     guessedLetters = [];
     activeWord = new Word(randomWords());
     activeWord.generateAllCorrectLetters();
 
+    // play again prompt
     inquirer.prompt([
         {
             message: "Would you like to play again?",
             name: "confirm",
             type: "confirm",
         }
-    ]).then(function (response) {
+    ]).then((response) => {
         if (response.confirm) {
             console.log(chalk.blueBright("\nGreat! Generating a new word..."));
             main();
