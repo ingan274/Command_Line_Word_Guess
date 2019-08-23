@@ -19,7 +19,7 @@ $ npm install
 ```
 Then, start the game with:
 ```
-$ node index.js
+$ node wordguess.js
 ```
 Alternatively, to install system-wide (so that you don't have to be in the directory to run the app), just run:
 ```
